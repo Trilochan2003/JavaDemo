@@ -1,0 +1,29 @@
+package Assgnments;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Missing_and_Duplicate {
+	public static int[] check(int[] arr) {
+		int n = arr.length;
+		Set<Integer> set = new HashSet<>();
+		int[] ans = {-1};
+		for(int i=0; i<n; i++) {
+			if(set.contains(arr[i])) {
+				ans = new int[] {arr[i],i+1};
+				return ans;
+			}
+			set.add(arr[i]);
+		}
+		return ans;
+	}
+
+	public static void main(String[] args) {
+		int[] arr = {1,2,2,4};
+		int[] ans = check(arr);
+		for(var i: ans)
+			System.out.print(i+" ");
+
+	}
+
+}
